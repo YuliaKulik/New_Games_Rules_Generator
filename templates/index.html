@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} Predict {% endblock %}
+
+{% block content %}
+
+<br><br><br>
+<div class="one"><h1>ПРАВИЛА НОВЫX ИГР</h1></div>
+
+{% if not result %}
+    <div class="box">
+        <form method="POST" action="/results">
+            <br>
+            <br>
+            <br>
+                <div class="field">
+                    <center><input class="input is-large" name="input" placeholder="Напиши любое слово или фразу..."><br></center>
+                    <br>
+                    <center><button class="button is-block is-info is-large is-fullwidth" id="submit">Сгенерировать правила новой игры</button></center>
+                </div>
+        </form>
+    </div>
+{% else %}
+    <div class="form-outline">
+        <br><br><br>
+        <center><div class="output"><b>{{ prompt }}</b> {{ result }}</center>
+    </div>
+{% endif %}
+
+{% endblock %}
